@@ -9,7 +9,7 @@ loader_version = '0.2.1'
 FORCE_EXC_HOOK = %{FORCE_EXC_HOOK}
 
 inliner_importer_code = '''
-import imp
+import importlib
 import marshal
 import os
 import struct
@@ -48,7 +48,7 @@ class InlinerImporter(object):
             with open(fullname + '.pyc', 'rb') as pyc:
                 pyc_magic = pyc.read(4)
                 pyc_ts = struct.unpack('<I', pyc.read(4))[0]
-                if pyc_magic == imp.get_magic() and pyc_ts == py_ts:
+                if pyc_magic == importlib.util.MAGIC_NUMBER and pyc_ts == py_ts:
                     return marshal.load(pyc)
         except:
             pass
@@ -58,7 +58,7 @@ class InlinerImporter(object):
 
         try:
             with open(fullname + '.pyc', 'wb') as pyc:
-                pyc.write(imp.get_magic())
+                pyc.write(importlib.util.MAGIC_NUMBER)
                 pyc.write(struct.pack('<I', py_ts))
                 marshal.dump(compiled_code, pyc)
         except:

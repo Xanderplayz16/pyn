@@ -74,7 +74,7 @@ def process_files(cfg):
     # template would look better as a context manager
     postfix = template(cfg)
     files = []
-    output(cfg, "'''")
+    output(cfg, "r'''")
     for package_path in cfg.packages:
         base_dir, module_name = os.path.split(package_path)
         files.extend(process_directory(cfg, base_dir, module_name))
