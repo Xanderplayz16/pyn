@@ -2,6 +2,19 @@
 History
 =======
 
+0.3.0 (2024-09-xx)
+-----------------
+* Add support for running __main__ without appending scripts
+* Change and add some type annotations
+* Support for getting packages installed via site_packages
+* Encodes code in Base64, no more escaping problems now
+* Add suport for disabling importing a package by default, even with only one package
+* A couple bugfixes
+
+0.2.1 (2018-08-02?)
+------------------
+* Add some support for python 3
+
 0.2.0 (2016-04-03)
 ------------------
 

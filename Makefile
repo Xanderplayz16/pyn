@@ -29,12 +29,7 @@ help:
 clean: clean-build clean-pyc clean-test
 
 clean-build:
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
-
+	rm -rf dist
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
@@ -47,7 +42,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 pinliner tests
+	flake8 pyn tests
 
 test:
 	python setup.py test
@@ -80,9 +75,7 @@ release: clean
 	python setup.py bdist_wheel upload
 
 dist: clean
-	python setup.py sdist
-	python setup.py bdist_wheel
-	ls -l dist
+	python -m hatchling build
 
 install: clean
 	python setup.py install

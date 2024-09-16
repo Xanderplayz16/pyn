@@ -2,7 +2,9 @@
 Credits
 =======
 
-Development Lead
+
+
+Old Development Lead
 ----------------
 
 * Gorka Eguileor <gorka@eguileor.com>

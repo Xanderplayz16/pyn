@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyn"
+description = "Pyn merges in a single file all files from a Python package."
+readme = "README.rst"
+requires-python = ">=3.8" # todo: ...
+license = "Apache-2.0"
+authors = [
+    {name = "Gorka Eguileor", email = 'gorka@eguileor.com'},
+    {name = "Xanderplayz16", email = "xandermckay@proton.me"}
+]
+keywords = [
+    "pinliner", "stickytape", "PyBreeder",
+    "zipapp", "egg", "virtualenv",
+    "combine", "bundle", "singlefile"
+]
+classifiers=[
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: Apache Software License',
+    'Natural Language :: English',
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+]
+dependencies = []
+dynamic = [
+    "version"
+]
+[project.urls]
+Homepage = "https://github.com/Xanderplayz16/pyn"
+Issues = "https://github.com/Xanderplayz16/pyn/issues"
+
+[tool.hatch.version]
+path = "pyn/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyn"]
